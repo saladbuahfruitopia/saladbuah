@@ -1,0 +1,482 @@
+/* --- General Setup --- */
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #FF9800; /* Orange */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #f9f9f9;
+    --font-primary: 'Poppins', sans-serif;
+    --font-logo: 'Pacifico', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-color);
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: #f59100;
+    transform: translateY(-3px);
+}
+
+.btn-large {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+/* --- Navbar --- */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: transparent;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    padding: 15px 0;
+}
+
+.navbar.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-logo);
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Untuk logo di Navbar */
+.logo img {
+    height: 50px; /* ATUR TINGGI LOGO ANDA DI SINI */
+    width: auto;  /* Biarkan auto agar proporsi gambar tidak rusak */
+    vertical-align: middle; /* Membuat logo sejajar dengan item menu lainnya */
+}
+
+.navbar.scrolled .logo {
+    color: var(--primary-color);
+}
+
+.logo-accent {
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-menu a {
+    color: var(--text-dark);
+}
+
+.nav-menu a:hover, .navbar.scrolled .nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-light);
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled .bar {
+    background-color: var(--text-dark);
+}
+
+/* --- Hero Section --- */
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1565599243219-1d216c195a2f?q=80&w=2070') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* --- Features Section --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* --- Menu Section --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+.menu-card:hover{
+    transform: scale(1.05);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-card-body h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.menu-card-body p {
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.menu-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Testimonials Section --- */
+.testimonial-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 5px solid var(--primary-color);
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-name {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* --- CTA Section --- */
+#cta {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 60px 0;
+}
+
+#cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+#cta .btn-primary {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+}
+
+/* --- Footer --- */
+#footer {
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-about, .footer-social {
+    flex-basis: 45%;
+}
+
+.footer-about h3 {
+    font-family: var(--font-logo);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-social h3 {
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+
+/* --- Animation on scroll --- */
+.feature-card, .menu-card, .testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature-card.visible, .menu-card.visible, .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive Design --- */
+@media(max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu a, .navbar.scrolled .nav-menu a {
+        color: var(--text-dark);
+    }
+    
+    .nav-menu .btn {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar.scrolled .hamburger.active .bar {
+         background-color: var(--text-dark);
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .footer-about, .footer-social {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+/* 1. Jadikan container logo sebagai flexbox */
+.logo {
+    display: flex; /* Membuat item di dalamnya (gambar & teks) sejajar */
+    align-items: center; /* Menyejajarkan item secara vertikal di tengah */
+    gap: 12px; /* Memberi jarak antara logo dan teks */
+    text-decoration: none; /* Menghilangkan garis bawah dari link */
+}
+
+/* 2. Atur ukuran gambar logo (seperti sebelumnya) */
+.logo img {
+    height: 45px; /* Anda bisa sesuaikan ukurannya */
+    width: auto;
+}
+
+/* 3. Atur style untuk teks nama perusahaan */
+.logo span {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font yang konsisten */
+    font-size: 1.6rem; /* Sesuaikan ukuran font jika perlu */
+    font-weight: 700; /* Ketebalan font (bold) */
+    color: #fff; /* Warna teks awal (saat di atas gambar hero) */
+    transition: color 0.4s ease;
+}
+
+/* 4. Atur perubahan warna teks saat navbar di-scroll */
+.navbar.scrolled .logo span {
+    color: #333; /* Warna teks saat background navbar menjadi putih */
+}
+
+/* Hapus styling font pada logo yang lama jika ada */
+.logo {
+    font-family: inherit;
+    font-size: inherit;
+}
